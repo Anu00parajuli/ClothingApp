@@ -10,6 +10,8 @@ class Products {
   late final List Colors;
   late final List Sizes;
 
+  static var product;
+
   Products({
 required this.id,
 required this.images,

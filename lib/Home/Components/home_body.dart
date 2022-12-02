@@ -4,6 +4,7 @@ import 'package:clothing_app/Home/Components/new_collection.dart';
 import 'package:clothing_app/Home/Components/home_header.dart';
 import 'package:clothing_app/Home/Components/new_products.dart';
 import 'package:clothing_app/Home/Components/popular_products.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 class HomeBody extends StatefulWidget {
   const HomeBody({super.key});
@@ -15,10 +16,17 @@ class HomeBody extends StatefulWidget {
 class _HomeBodyState extends State<HomeBody> {
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser!;
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(
           children: [
+            SizedBox(height: 30,),
+            Text(user.email!),
+            SizedBox(height: 30,),
+            IconButton(onPressed:() {
+              Navigator.pushNamed(context, 'logout');
+            }, icon: Icon(Icons.logout_rounded)),
            SizedBox(height: 30,),
             Text('New Products'),
             // SizedBox(width: 20,),

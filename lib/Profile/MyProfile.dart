@@ -2,12 +2,19 @@
 
 
 
+
+
+import 'dart:io';
+
 import 'package:clothing_app/Constants/global_variables.dart';
 import 'package:clothing_app/Profile/Components/ProfileBody.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter/services.dart';
 import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 import 'package:image_picker/image_picker.dart';
+
+
 
 
 class MyProfile extends StatefulWidget {
@@ -19,7 +26,9 @@ class MyProfile extends StatefulWidget {
 
 class _MyProfileState extends State<MyProfile> {
 
-//   File? image;
+  String imageUrl = " ";
+
+  // File? _imageFile;
 // Future pickImage() async {
 //     try {
 //       final image = await ImagePicker().pickImage(source: ImageSource.gallery);
@@ -68,7 +77,8 @@ ImagePicker picker = ImagePicker();
                    radius: 61,
                    
                    
-             img: 'https://media-exp1.licdn.com/dms/image/C4D03AQFgUo973GGSSw/profile-displayphoto-shrink_800_800/0/1629770880479?e=1674691200&v=beta&t=Ib8-gT2GzLY2Cu9S1amFy3pWCQCMKMNJB1LUywfSQuw',
+            //  img: 'https://media-exp1.licdn.com/dms/image/C4D03AQFgUo973GGSSw/profile-displayphoto-shrink_800_800/0/1629770880479?e=1674691200&v=beta&t=Ib8-gT2GzLY2Cu9S1amFy3pWCQCMKMNJB1LUywfSQuw',
+                img: imageUrl
              ),
             ),
             
@@ -83,10 +93,28 @@ ImagePicker picker = ImagePicker();
               
               async { 
                 image = await picker.pickImage(source: ImageSource.gallery); 
-                        setState(() {
+                        
+
+                   // pickImage();
+                Reference ref = FirebaseStorage.instance.ref().child('profilepic.jpg');
+
+                await ref.putFile(File(image!.path));
+                // print(image!.path);
+               
+                ref.getDownloadURL().then((value) {
+                  print(value);
+
+                  setState(() {
                           //update UI
+                          // image = File(image.path);
+                          imageUrl = value;
                         });
-                // pickImage();
+                                            
+
+                });
+                
+
+               
               }
                 )
                 

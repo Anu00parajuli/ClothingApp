@@ -2,6 +2,7 @@ import 'package:clothing_app/Cart/MyCart.dart';
 import 'package:clothing_app/Constants/global_variables.dart';
 import 'package:clothing_app/Favourites/MyFavourites.dart';
 import 'package:clothing_app/Home/homescreen.dart';
+import 'package:clothing_app/Models/list_productsModel.dart';
 import 'package:clothing_app/Profile/MyProfile.dart';
 
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 List<Widget> pages = [
     HomePage(),
     MyFavourites(),
-    MyCart(),
+    MyCart(product: demoProducts[0],),
     MyProfile(),
 ];
 
