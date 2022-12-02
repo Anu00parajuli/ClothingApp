@@ -39,7 +39,7 @@ class _CollectionState extends State<Collection> {
                    
               Card(
                margin: EdgeInsets.symmetric(horizontal: 8),
-                color: Colors.blue,
+                // color: Colors.blue,
                 child: Column(
                   children: [
                     

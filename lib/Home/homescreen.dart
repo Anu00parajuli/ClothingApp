@@ -43,15 +43,7 @@ class _HomePageState extends State<HomePage> {
           padding: EdgeInsets.zero,
           children: [
             const DrawerHeader(child: Text('Hi User')),
-            ListTile(leading:
-             Icon(Icons.settings),
-             title: Text('Settings'),
-             onTap:() async {
-              // launchUrl(url_facebook);
-             } ,
-            
-    
-            ),
+           
             ListTile( leading: 
             Icon(Icons.settings_accessibility_rounded),
             title: Text('Accessibility'),
@@ -60,72 +52,27 @@ class _HomePageState extends State<HomePage> {
             },
     
             ),
+             ListTile(leading:
+             Icon(Icons.settings),
+             title: Text('Settings'),
+             onTap:() async {
+              // launchUrl(url_facebook);
+             } ,
+            
+    
+            ),
             ListTile(
               leading:
               Icon(Icons.branding_watermark_sharp),
-              title: Text('Brands'),
+              title: Text('Logout'),
               onTap: () async {
-                // launchUrl(url_snapchat);
+                Navigator.pushNamed(context, 'logout');
               },
             ),
         ],
           ),
       ),
-      
-      
-        body: HomeBody(),
-
-      // child: Column(
-      //    children: [
-    
-         
-      //   Drawer(
-      //    child: ListView(
-      //     padding: EdgeInsets.zero,
-      //     children: [
-      //       const DrawerHeader(child: Text('Hi User')),
-      //       ListTile(leading:
-      //        Icon(Icons.settings),
-      //        title: Text('Settings'),
-      //        onTap:() async {
-      //         // launchUrl(url_facebook);
-      //        } ,
-            
-    
-      //       ),
-      //       ListTile( leading: 
-      //       Icon(Icons.settings_accessibility_rounded),
-      //       title: Text('Accessibility'),
-      //       onTap: () async {
-      //         // launchUrl(url_instagram);
-      //       },
-    
-      //       ),
-      //       ListTile(
-      //         leading:
-      //         Icon(Icons.branding_watermark_sharp),
-      //         title: Text('Brands'),
-      //         onTap: () async {
-      //           // launchUrl(url_snapchat);
-      //         },
-      //       ),
-      //   ],
-      //     ),
-      // ),
-      // SizedBox(height: 10,),
-      // HomeBody()
-      
-      
-       
-       
-         
-    
-    
-      //    ],
-     
-      //   )
-        
-    
+       body: HomeBody(),
       ),
     );
 

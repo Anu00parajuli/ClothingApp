@@ -12,37 +12,50 @@ class _LogoutScreenState extends State<LogoutScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Container(
-        child: Card(
-          child: Column(children: [
-            Text('Are you sure to exit?'),
-            Row(
-              children: [
-                OutlinedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, 'home');
-                }, 
-                child: Text('Cancel')
-                ),
-                OutlinedButton(
+      child: Scaffold(
+        
+      
+      body:
+      Center(
+        child: Container(
+          child: Card(
+            child: Column(children: [
+              SizedBox(height: 180,),
+              Text('Are you sure to exit?'),
+              Row(
+                children: [
+                  SizedBox(height: 40, width: 80,),
+                  OutlinedButton(
+                    
                   onPressed: () {
-                   
-                    FirebaseAuth.instance.signOut();
-                    // Navigator.pushAndRemoveUntil(context, 'login');
-                    Navigator.pushAndRemoveUntil(
+                    Navigator.pushNamed(context, 'home');
+                  }, 
+                  child: Text('Cancel')
+                  ),
+                  SizedBox(width: 20,),
+                  OutlinedButton(
+                    onPressed: () {
+                     
+                      FirebaseAuth.instance.signOut();
+                      // Navigator.pushAndRemoveUntil(context, 'login');
+                      Navigator.pushAndRemoveUntil(
     context,   
     MaterialPageRoute(builder: (BuildContext context) => LoginPage()), 
     ModalRoute.withName('/')
 );
-                  },
-                  child: Text('Logout')
-                ),
-              ],
-            )
-            
-          ]),
+                    },
+                    child: Text( 
+                      'Logout',
+                      style: TextStyle(color: Colors.deepOrangeAccent),)
+                  ),
+                ],
+              )
+              
+            ]),
+          ),
         ),
       ),
+      )
     );
   }
 }

@@ -40,7 +40,7 @@ class _MyFavouritesState extends State<MyFavourites> {
                     children: [
                         SizedBox(width: 20,),
                          
-                            Image.network('https://cdn.shopify.com/s/files/1/0182/1471/5470/articles/Designer_Sarees_520x500_3876f942-3cda-41ca-89a2-0c637853d600.jpg?v=1639418628',
+                            Image.network('https://static-01.daraz.com.np/p/3c577bee5fa6bfae9570983c7d26a282.jpg',
                             height: 100,
                             width: 100,),
                            Text('T-shirt'),  

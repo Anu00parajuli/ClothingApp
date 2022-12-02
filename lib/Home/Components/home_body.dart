@@ -21,12 +21,11 @@ class _HomeBodyState extends State<HomeBody> {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 30,),
+             SizedBox(height: 20,),
+             Text('SignIn as'),
+            SizedBox(width: 10,),
             Text(user.email!),
-            SizedBox(height: 30,),
-            IconButton(onPressed:() {
-              Navigator.pushNamed(context, 'logout');
-            }, icon: Icon(Icons.logout_rounded)),
+           
            SizedBox(height: 30,),
             Text('New Products'),
             // SizedBox(width: 20,),
@@ -35,15 +34,15 @@ class _HomeBodyState extends State<HomeBody> {
             Text('Our Brands'),
             SizedBox(width: 20,),
             Brands(),
-            SizedBox(height: 30,),
+            SizedBox(height: 20,),
             Text('Our Collection'),
             SizedBox(width: 20,),
             Collection(),
-            SizedBox(height: 30,),
-            Text('Popular Products'),
-            SizedBox(width: 20,),
-            PopularProducts(),
-            SizedBox(height: 30,),
+            SizedBox(height: 20,),
+            // Text('Popular Products'),
+            // SizedBox(width: 20,),
+            // PopularProducts(),
+            // SizedBox(height: 30,),
             Text('Our Branches'),
             SizedBox(width: 20,),
             Branches(),

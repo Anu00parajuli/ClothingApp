@@ -40,7 +40,7 @@ class _BrandsState extends State<Brands> {
                    
               Card(
                margin: EdgeInsets.symmetric(horizontal: 8),
-                color: GlobalVariables.backGroundColor,
+                // color: GlobalVariables.backGroundColor,
 
                 child: Column(
                   children: [

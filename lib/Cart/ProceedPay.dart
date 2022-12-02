@@ -101,6 +101,7 @@ class _ProceedPaymentState extends State<ProceedPayment> {
 
           }, child: Text('Pay')),
           KhaltiButton(
+            // if (_formKey.currentState!.validate()) {
                config: PaymentConfig(
   amount: 10000, // Amount should be in paisa
   productIdentity: 'dell-g5-g5510-2021',
@@ -122,6 +123,7 @@ class _ProceedPaymentState extends State<ProceedPayment> {
                   // payPressed(address);
                   // AddressServices().placeOrder(context: context, address: 'pokhara', totalSum: 20);
                    }, onFailure: (PaymentFailureModel ) {},
+            // }
                ),
         ],
        ),

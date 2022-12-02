@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 final List<String> imgList = [
-  'https://www.thefoodius.com/wp-content/uploads/2021/07/KFC-Kalanki-1024x585.jpg',
-  'https://media.istockphoto.com/id/1321150254/photo/kfc-store-calgary.jpg',
-  'https://www.nrn.com/sites/nrn.com/files/styles/article_featured_retina/public/KFC%20Westfield-456.jpg',
-  'https://www.thefoodius.com/wp-content/uploads/2021/07/KFC-Kalanki-1024x585.jpg',
-  'https://suvadin.com/uploads/info/1483964347_1045236_158160617702254_1808954417_n.jpgs',
-  'https://securecdn.pymnts.com/wp-content/uploads/2021/05/kfc.jpg'
+  'https://lh3.googleusercontent.com/FK8EcHV1SJGHeTUJCsUhCQl0hmQu-QbC4wG6bM59S0v-rLv-jQl16YC3LQ4x-ZpPwS1cUs_4Idap57kYgcTCOQFB',
+  'https://shopforaurelia.com/images/aurelia-logo.jpg',
+  'https://upload.wikimedia.org/wikipedia/en/thumb/e/e4/Herm%C3%A8s.svg/1200px-Herm%C3%A8s.svg.png',
+  'https://m.media-amazon.com/images/S/abs-image-upload-na/b/AmazonStores/ATVPDKIKX0DER/db1a93c16294b153654e8fec57fb3b38.w400.h400.jpg',
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Zara_Logo.svg/1200px-Zara_Logo.svg.png',
+  'https://www2.hm.com/hm-logo.png',
+
 ];
 
 class Branches extends StatefulWidget {
@@ -27,7 +28,7 @@ class _BranchesState extends State<Branches> {
                 child: CarouselSlider.builder(
                   itemCount: imgList.length,
                   itemBuilder: (context, index, realIndex) {
-                    print(index);
+                    //print(imgList[index]);
                     return Container(
                       child: Image.network(imgList[index]),
                     );
