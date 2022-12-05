@@ -1,4 +1,6 @@
 import 'package:clothing_app/Auth/login.dart';
+import 'package:clothing_app/Models/Users/users.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,10 +16,12 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
 
   final _formKey = GlobalKey<FormState>();
+  final usernameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final phoneNumberController = TextEditingController();
   bool signUp = true;
-
+ 
   @override
 
    void dispose(){
@@ -55,21 +59,22 @@ class _SignUpPageState extends State<SignUpPage> {
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   key: _formKey,
                   child: Column(children: <Widget>[
-                    // TextFormField(
-                    //   decoration: const InputDecoration(
-                    //     icon: Icon(Icons.person),
-                    //     hintText: 'Full Name',
-                    //   ),
-                    //   validator: (value) {
-                    //   if(value == null || value.isEmpty ){
-                    //     return('Username is required');
-                    //   }
-                    //   else{
-                    //   return(null);
-                    //   }
-                    // }
+                    TextFormField(
+                      controller: usernameController,
+                      decoration: const InputDecoration(
+                        icon: Icon(Icons.person),
+                        hintText: 'Full Name',
+                      ),
+                      validator: (value) {
+                      if(value == null || value.isEmpty ){
+                        return('Username is required');
+                      }
+                      else{
+                      return(null);
+                      }
+                    }
 
-                    // ),
+                    ),
                     TextFormField(
                       controller: emailController,
                       decoration: const InputDecoration(
@@ -141,23 +146,24 @@ class _SignUpPageState extends State<SignUpPage> {
 
                     // }
                     // ),
-                    // TextFormField(
-                    //   keyboardType: TextInputType.phone,
-                    //   decoration: const InputDecoration(
-                    //     icon: Icon(Icons.contact_phone),
-                    //     hintText: 'Contact No.',
+                    TextFormField(
+                      controller: phoneNumberController,
+                      keyboardType: TextInputType.phone,
+                      decoration: const InputDecoration(
+                        icon: Icon(Icons.contact_phone),
+                        hintText: 'Contact No.',
                         
-                    //   ),
+                      ),
                       
-                    //   validator: (value) {
-                    //     if (value!.length != 10){
-                    //     return 'Mobile Number must be of 10 digit';
-                    //     }
-                    //     else {
-                    //     return null;
-                    //     }
-                    //   },
-                    // ),
+                      validator: (value) {
+                        if (value!.length != 10){
+                        return 'Mobile Number must be of 10 digit';
+                        }
+                        else {
+                        return null;
+                        }
+                      },
+                    ),
 
                     SizedBox( height: 5,),
                   //   OutlinedButton(onPressed: (){
@@ -181,6 +187,45 @@ class _SignUpPageState extends State<SignUpPage> {
                               email: emailController.text.trim(),
                               password: passwordController.text.trim()
                           );
+                         
+                         final userId = FirebaseAuth.instance.currentUser?.uid;
+                         print(userId);
+                         print( FirebaseAuth.instance.currentUser?.email);
+
+                         final docUser = FirebaseFirestore.instance.collection('users');
+
+                         final user = User(
+                            username: usernameController.text,
+                             user_email_address: emailController.text,
+                              user_phone_number: phoneNumberController.text
+                          
+                            );
+
+                         final json = user.toJson();
+
+                            await docUser.doc(userId).set(json);
+
+
+                         
+
+                          
+
+                            
+
+                          // Future createUser(User user) async{
+                          //   final docUser = FirebaseFirestore.instance.collection('users').doc();
+                          //    var id = docUser.id;
+
+                          //   final json = user.toJson();
+
+                          //   await docUser.set(json);
+                            
+
+
+
+                          // }
+
+                          // createUser(user);
                           
                           
 
@@ -188,7 +233,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         Navigator.pushNamed(context, 'login');
                       }
                     },
-                    child: Text('Login'))
+                    child: Text('SignUp'))
                     ],
 
 
@@ -208,4 +253,30 @@ class _SignUpPageState extends State<SignUpPage> {
       )),
     );
   }
+}
+
+class User{
+
+  final String id;
+  final String username;
+  final String user_email_address;
+  final String user_phone_number;
+
+
+  User({
+  this.id ='',
+  required this.username,
+  required this.user_email_address,
+  required this.user_phone_number,
+  });
+
+  Map <String , dynamic > toJson() => 
+  {
+    'id' : id,
+    'name' : username,
+    'email' : user_email_address,
+    'phone_number' : user_phone_number
+
+    
+  };
 }

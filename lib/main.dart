@@ -36,7 +36,7 @@ class ClothingApp extends StatelessWidget {
       
      scaffoldMessengerKey: utils.messengerKey,
      debugShowCheckedModeBanner: false,
-     initialRoute: 'login',
+     initialRoute: 'signup',
     //  initialRoute: 'new_products',
     // home: LoginPage(),
 
