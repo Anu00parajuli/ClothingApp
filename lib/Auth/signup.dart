@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:clothing_app/Auth/login.dart';
 import 'package:clothing_app/Models/Users/users.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -206,7 +208,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             await docUser.doc(userId).set(json);
 
 
-                         
+                        // Stream<List<User>> readUser() => FirebaseFirestore.instance.collection('users').snapshots().map((snapshot) =>snapshot.docs.map((doc) => User.fromJson(() => doc.data()).toList()));
 
                           
 
@@ -279,4 +281,11 @@ class User{
 
     
   };
+
+  static User fromJson(Map < String , dynamic> json()) => User(
+   
+    username: 'name',
+    user_email_address: 'email',
+    user_phone_number: 'phone_number'
+    );
 }

@@ -1,8 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:clothing_app/Home/Components/product_descript.dart';
+import 'package:clothing_app/Home/Components/product_design.dart';
 import 'package:clothing_app/Models/list_productsModel.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 class NewProducts extends StatefulWidget {
+  
   const NewProducts({super.key});
 
   @override
@@ -10,6 +13,7 @@ class NewProducts extends StatefulWidget {
 }
 
 class _NewProductsState extends State<NewProducts> {
+  
 
   List<Products> demoProducts = [
   Products(
@@ -111,80 +115,126 @@ class _NewProductsState extends State<NewProducts> {
 
 ];
 
+
   @override
 
   Widget build(BuildContext context) {
+
+ return StreamBuilder<QuerySnapshot>(
+  stream: FirebaseFirestore.instance.collection('products').snapshots(),
+  builder: (context, snapshot) {
+   List<ProductDesign> productsList = [];
+    if (!snapshot.hasData) {
+
+      return CircularProgressIndicator();
+    }
+    else{
+    
+      final allProducts = snapshot.data?.docs;
+      for (var product in allProducts!){
+
+        final imagePath = product['images'];
+        final title = product['title'];
+        final description = product['description'];
+        final price = product['price'];
+        final rating = product['rating'];
+        final isFavourite = product['isFavourite'];
+        final sizes = product['sizes'];
+        final colors = product['colors'];
+        print(title);
+
+
+      var newProduct =  ProductDesign(title: title, description: description, imagePath: imagePath, rating: rating, isFavourite: isFavourite, sizes: sizes, colors: colors, price: price,);
+      productsList.add(newProduct);
+      }
+    }
     return Container(
       height: 250,
-      
-      child: ListView.builder(
-        itemCount: demoProducts.length,
-      
+      child: ListView(
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, i) {
-          return Column(
-            
-            children: <Widget>[
+       children: productsList,
         
-              SizedBox(width: 20,),
-                   
-              InkWell(
-                onTap: (){
-                 Navigator.of(context).push(
-    MaterialPageRoute(
-      builder: (context) =>  ProductDescription(product: demoProducts[i],),
-    ),
-  );
-                },
-                child: Card(
-                 margin: EdgeInsets.symmetric(horizontal: 8),
-                  // color: Colors.blue,
-                  child: Column(
-                    children: [
-              
-                           Hero(
-                            tag: [demoProducts[i].title,
-                                 demoProducts[i].description,
-                                 demoProducts[i].isFavourite,
-                                 demoProducts[i].price
-                                 ],
+      ),
+    );
+  },
 
-                             child: CachedNetworkImage(
-                                                 height: 150,
-                                                 width: 150,
-                                                 fit: BoxFit.cover,
-                                             placeholder: (context, url) =>
-                                                 AspectRatio(
-                                                   aspectRatio: 1,
-                                                   child: Image.asset('assets/placeholder.jpg')),
-                                             imageUrl:demoProducts[i].images
+);
+
+  //   return Container(
+  //     height: 250,
+      
+  //     child: ListView.builder(
+  //       itemCount: demoProducts.length,
+      
+  //       scrollDirection: Axis.horizontal,
+  //       itemBuilder: (context, i) {
+  //         return Column(
+            
+  //           children: <Widget>[
+        
+  //             SizedBox(width: 20,),
+                   
+  //             InkWell(
+  //               onTap: (){
+  //                Navigator.of(context).push(
+  //   MaterialPageRoute(
+  //     builder: (context) =>  ProductDescription(product: demoProducts[i],),
+  //   ),
+  // );
+  //               },
+  //               child: Card(
+  //                margin: EdgeInsets.symmetric(horizontal: 8),
+  //                 // color: Colors.blue,
+  //                 child: Column(
+  //                   children: [
+              
+  //                          Hero(
+  //                           tag: [demoProducts[i].title,
+  //                                demoProducts[i].description,
+  //                                demoProducts[i].isFavourite,
+  //                                demoProducts[i].price
+  //                                ],
+
+  //                            child: CachedNetworkImage(
+  //                                                height: 150,
+  //                                                width: 150,
+  //                                                fit: BoxFit.cover,
+  //                                            placeholder: (context, url) =>
+  //                                                AspectRatio(
+  //                                                  aspectRatio: 1,
+  //                                                  child: Image.asset('assets/placeholder.jpg')),
+  //                                            imageUrl:demoProducts[i].images
                                      
-                                           ),
-                           ),
+  //                                          ),
+  //                          ),
                       
-                      // Image.network(demoProducts[i].images,
-                      //                height: 150,
-                      //                width: 150,
-                      //                fit: BoxFit.cover,
-                      //   ),
-                      Text(demoProducts[i].title.toString()),
-                      Text(demoProducts[i].description.toString()),
-                      Text(demoProducts[i].price.toString()),
+  //                     // Image.network(demoProducts[i].images,
+  //                     //                height: 150,
+  //                     //                width: 150,
+  //                     //                fit: BoxFit.cover,
+  //                     //   ),
+  //                     Text(demoProducts[i].title.toString()),
+  //                     Text(demoProducts[i].description.toString()),
+  //                     Text(demoProducts[i].price.toString()),
               
+  //   //                     db.collection("products").get().then(
+  //   //   (res) => print("Successfully completed"),
+  //   //   onError: (e) => print("Error completing: $e"),
+  //   // );
+  //                   ],
+                   
+  //                 )
               
-                    ],
-                  )
-              
-                    ),
-              ),
+  //                   ),
+  //             ),
               
          
               
 
-            ],
-          );
-        }
-      ),
-    );
+  //           ],
+  //         );
+  //       }
+  //     ),
+  //   );
   }
 }
