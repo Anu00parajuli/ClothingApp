@@ -3,7 +3,7 @@ import 'package:clothing_app/Home/Components/Brands/brands.dart';
 import 'package:clothing_app/Home/Components/Collection/new_collection.dart';
 // import 'package:clothing_app/Home/Components/home_header.dart';
 import 'package:clothing_app/Home/Components/Products/new_products.dart';
-import 'package:clothing_app/Home/Popular%20Products/popular_products.dart';
+import 'package:clothing_app/Home/Components/Popular%20Products/popular_products.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 class HomeBody extends StatefulWidget {
