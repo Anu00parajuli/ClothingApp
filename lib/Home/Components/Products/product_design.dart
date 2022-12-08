@@ -1,13 +1,13 @@
 import 'dart:ffi';
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:clothing_app/Home/Components/new_products.dart';
-import 'package:clothing_app/Home/Components/product_descript.dart';
+import 'package:clothing_app/Home/Components/Products/new_products.dart';
+import 'package:clothing_app/Home/Components/Products/product_descript.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
 
-import '../../Models/list_productsModel.dart';
+import '../../../Models/list_productsModel.dart';
 import 'new_products.dart';
 
 class ProductDesign extends StatelessWidget {
@@ -21,6 +21,7 @@ class ProductDesign extends StatelessWidget {
   final int price;
 
   const ProductDesign({super.key, required this.title, required this.description, required this.imagePath, required this.rating, required this.isFavourite, required this.sizes, required this.colors, required this.price});
+  //  var newProduct =  ProductDesign(title: title, description: description, imagePath: imagePath, rating: rating, isFavourite: isFavourite, sizes: sizes, colors: colors, price: price,);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,7 @@ class ProductDesign extends StatelessWidget {
                 onTap: (){
                  Navigator.of(context).push(
     MaterialPageRoute(
-      builder: (context) =>  ProductDesign(title: title, description: description, imagePath: imagePath, rating: rating, isFavourite: isFavourite, sizes: sizes, colors: colors, price: price,),
+      builder: (context) =>  ProductDescription(product: ProductDesign(title: title, description: description, imagePath: imagePath, rating: rating, isFavourite: isFavourite, sizes: sizes, colors: colors, price: price) ),
     ),
   );
                 },

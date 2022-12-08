@@ -1,6 +1,6 @@
 import 'package:clothing_app/Bottom%20Navigation/bottom_navigation.dart';
 import 'package:clothing_app/Constants/global_variables.dart';
-import 'package:clothing_app/Home/Components/home_body.dart';
+import 'package:clothing_app/Home/Components/HomeScreen/home_body.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import'package:flutter/material.dart';
 

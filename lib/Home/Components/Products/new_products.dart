@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:clothing_app/Home/Components/product_descript.dart';
-import 'package:clothing_app/Home/Components/product_design.dart';
+import 'package:clothing_app/Home/Components/Products/product_descript.dart';
+import 'package:clothing_app/Home/Components/Products/product_design.dart';
 import 'package:clothing_app/Models/list_productsModel.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';

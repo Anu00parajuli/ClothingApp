@@ -1,12 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:clothing_app/Constants/global_variables.dart';
+import 'package:clothing_app/Home/Components/Products/product_design.dart';
 import 'package:clothing_app/Models/list_productsModel.dart';
 import 'package:flutter/material.dart';
 import 'package:favorite_button/favorite_button.dart';
 
 class ProductDescription extends StatefulWidget {
   const ProductDescription({super.key, required this.product});
-  final Products product;
+  final ProductDesign product;
 
   @override
   State<ProductDescription> createState() => _ProductDescriptionState();
@@ -46,7 +47,7 @@ class _ProductDescriptionState extends State<ProductDescription> {
                         AspectRatio(
                           aspectRatio: 1,
                           child: Image.asset('assets/placeholder.jpg')),
-                                     imageUrl:widget.product.images
+                                     imageUrl:widget.product.imagePath
                                      
                                    ),
                    ),
