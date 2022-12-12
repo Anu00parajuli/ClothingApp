@@ -19,8 +19,9 @@ class ProductDesign extends StatelessWidget {
   final List sizes;
   final List colors;
   final int price;
+  final String brandName;
 
-  const ProductDesign({super.key, required this.title, required this.description, required this.imagePath, required this.rating, required this.isFavourite, required this.sizes, required this.colors, required this.price});
+  const ProductDesign({super.key, required this.title, required this.description, required this.imagePath, required this.rating, required this.isFavourite, required this.sizes, required this.colors, required this.price, required this.brandName});
   //  var newProduct =  ProductDesign(title: title, description: description, imagePath: imagePath, rating: rating, isFavourite: isFavourite, sizes: sizes, colors: colors, price: price,);
 
   @override
@@ -37,7 +38,7 @@ class ProductDesign extends StatelessWidget {
                 onTap: (){
                  Navigator.of(context).push(
     MaterialPageRoute(
-      builder: (context) =>  ProductDescription(product: ProductDesign(title: title, description: description, imagePath: imagePath, rating: rating, isFavourite: isFavourite, sizes: sizes, colors: colors, price: price) ),
+      builder: (context) =>  ProductDescription(product: ProductDesign(title: title, description: description, imagePath: imagePath, rating: rating, isFavourite: isFavourite, sizes: sizes, colors: colors, price: price, brandName: brandName,) ),
     ),
   );
                 },

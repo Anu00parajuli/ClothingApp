@@ -1,6 +1,10 @@
 import 'package:clothing_app/Constants/global_variables.dart';
 import 'package:clothing_app/Models/list_brandsModel.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '../Products/product_design.dart';
+import 'brand_design.dart';
 
 class Brands extends StatefulWidget {
   const Brands({super.key});
@@ -24,49 +28,88 @@ class _BrandsState extends State<Brands> {
 
 
   Widget build(BuildContext context) {
+  return StreamBuilder<QuerySnapshot>(
+  stream: FirebaseFirestore.instance.collection('brands').snapshots(),
+ 
+  builder: (context, snapshot) {
+   List<BrandDesign> brandsList = [];
+    if (!snapshot.hasData) {
+      // final productBrandRef = FirebaseFirestore.instance.collection("products");
+      // print(productBrandRef);
+      return CircularProgressIndicator();
+    }
+    else{
+    
+      final allBrands = snapshot.data?.docs;
+      
+      for (var brand in allBrands!){
+
+        final logo = brand['logo'];
+        final title = brand['title'];
+        final description = brand['description'];
+       
+        // print(title);
+
+
+      var newbrand =  BrandDesign(title: title, description: description, logo: logo);
+      brandsList.add(newbrand);
+      }
+    }
     return Container(
-        height: 250,
-      
-      child: ListView.builder(
-        itemCount: demoBrands.length,
-      
+      height: 250,
+      child: ListView(
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, i) {
-          return Column(
-            
-            children: <Widget>[
+       children: brandsList,
         
-              SizedBox(width: 20,),
+      ),
+    );
+  },
+
+);
+}
+//     return Container(
+//         height: 250,
+      
+//       child: ListView.builder(
+//         itemCount: demoBrands.length,
+      
+//         scrollDirection: Axis.horizontal,
+//         itemBuilder: (context, i) {
+//           return Column(
+            
+//             children: <Widget>[
+        
+//               SizedBox(width: 20,),
                    
-              Card(
-               margin: EdgeInsets.symmetric(horizontal: 8),
-                // color: GlobalVariables.backGroundColor,
+//               Card(
+//                margin: EdgeInsets.symmetric(horizontal: 8),
+//                 // color: GlobalVariables.backGroundColor,
 
-                child: Column(
-                  children: [
+//                 child: Column(
+//                   children: [
                     
-                    Image.network(demoBrands[i].logo,
-                                   height: 150,
-                                   width: 150,
-                                   fit: BoxFit.cover,
-                      ),
-                    Text(demoBrands[i].title.toString()),
-                    Text(demoBrands[i].description.toString()),
+//                     Image.network(demoBrands[i].logo,
+//                                    height: 150,
+//                                    width: 150,
+//                                    fit: BoxFit.cover,
+//                       ),
+//                     Text(demoBrands[i].title.toString()),
+//                     Text(demoBrands[i].description.toString()),
               
               
-                  ],
-                )
+//                   ],
+//                 )
 
-                  ),
+//                   ),
               
          
               
 
-            ],
-          );
-        }
-      ),
-    );
+//             ],
+//           );
+//         }
+//       ),
+//     );
   
-  }
+//   }
 }

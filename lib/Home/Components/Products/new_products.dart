@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:clothing_app/Home/Components/Brands/brand_design.dart';
 import 'package:clothing_app/Home/Components/Products/product_descript.dart';
 import 'package:clothing_app/Home/Components/Products/product_design.dart';
 import 'package:clothing_app/Models/list_productsModel.dart';
@@ -141,11 +142,30 @@ class _NewProductsState extends State<NewProducts> {
         final isFavourite = product['isFavourite'];
         final sizes = product['sizes'];
         final colors = product['colors'];
-        print(title);
+        final brandName = product['brandName'];
+        // print(title);
+        
 
-
-      var newProduct =  ProductDesign(title: title, description: description, imagePath: imagePath, rating: rating, isFavourite: isFavourite, sizes: sizes, colors: colors, price: price,);
+      var newProduct =  ProductDesign(title: title, description: description, imagePath: imagePath, rating: rating, isFavourite: isFavourite, sizes: sizes, colors: colors, price: price, brandName: 'brandName',);
       productsList.add(newProduct);
+      switch (brandName){
+        case 'Nike':
+        continue;
+        case 'H&M' :
+        continue;
+        case 'Aurelia' :
+        continue;
+        case 'Hermes' :
+        continue;
+        case 'H&M' :
+        continue;
+        case 'Gucci':
+        continue;
+        case 'Levis':
+        continue;
+        case 'Zara' :
+        continue;  
+      }
       }
     }
     return Container(
