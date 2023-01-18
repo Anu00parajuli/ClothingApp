@@ -16,10 +16,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    
+    final user = FirebaseAuth.instance.currentUser!;
     return SafeArea(
       child: Scaffold(
       appBar: AppBar(
+        
         foregroundColor: GlobalVariables.primarycolor,
         backgroundColor: Colors.white,
         actions: [
@@ -38,17 +39,34 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       drawer: Drawer(
-        // backgroundColor: Colors.white,
+
+        // backgroundColor: Colors.pinkAccent,
          child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(child: Text('Hi User')),
+            DrawerHeader(child: 
+            
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: Column(children: [
+                Text('Welcome '),
+                Text(user.email! ,style: TextStyle(
+                  fontSize: 12
+                ),)]),
+            ),
+            // Text('Hi User')
+            
+            
+           
+            ),
            
             ListTile( leading: 
             Icon(Icons.settings_accessibility_rounded),
-            title: Text('Accessibility'),
+            title: Text('Faqs'),
             onTap: () async {
               // launchUrl(url_instagram);
+              Navigator.pushNamed(context, 'faqs');
+              
             },
     
             ),
@@ -57,6 +75,7 @@ class _HomePageState extends State<HomePage> {
              title: Text('Settings'),
              onTap:() async {
               // launchUrl(url_facebook);
+              Navigator.pushNamed(context, 'settings');
              } ,
             
     

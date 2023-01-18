@@ -3,7 +3,7 @@ import 'package:clothing_app/Models/list_brandsModel.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../Products/product_design.dart';
+import '../../Products/product_design.dart';
 import 'brand_design.dart';
 
 class Brands extends StatefulWidget {

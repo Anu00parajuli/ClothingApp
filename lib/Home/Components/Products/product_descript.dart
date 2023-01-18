@@ -2,8 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:clothing_app/Constants/global_variables.dart';
 import 'package:clothing_app/Home/Components/Products/product_design.dart';
 import 'package:clothing_app/Models/list_productsModel.dart';
+import 'package:clothing_app/provider/favouriteProducts.dart';
 import 'package:flutter/material.dart';
 import 'package:favorite_button/favorite_button.dart';
+import 'package:provider/provider.dart';
 
 class ProductDescription extends StatefulWidget {
   const ProductDescription({super.key, required this.product});
@@ -14,8 +16,13 @@ class ProductDescription extends StatefulWidget {
 }
 
 class _ProductDescriptionState extends State<ProductDescription> {
+ 
   @override
   Widget build(BuildContext context) {
+    final favouriteProvider = 
+            Provider.of<MyFavProductsProvider>(context, listen: false);
+
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -54,10 +61,17 @@ class _ProductDescriptionState extends State<ProductDescription> {
                    SizedBox(height: 10,),
                    Text('Add to your WishList'),
                   FavoriteButton(
-                isFavorite: true,
+                isFavorite: false,
                 // iconDisabledColor: Colors.white,
                 valueChanged: (_isFavorite) {
-                  // print('Is Favorite : $_isFavorite');
+                  
+                  if(_isFavorite){
+                    favouriteProvider.addProduct(widget.product);
+                  } else {
+                    favouriteProvider.removeProduct(widget.product);
+                  }
+
+      
                 },
               ),
                    

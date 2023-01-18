@@ -1,6 +1,7 @@
 import 'package:clothing_app/Cart/MyCart.dart';
 import 'package:clothing_app/Constants/global_variables.dart';
 import 'package:clothing_app/Favourites/MyFavourites.dart';
+import 'package:clothing_app/Home/Components/Products/product_design.dart';
 import 'package:clothing_app/Home/homescreen.dart';
 import 'package:clothing_app/Models/list_productsModel.dart';
 import 'package:clothing_app/Profile/MyProfile.dart';
@@ -16,12 +17,14 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
+
   var _currentIndex = 0;
+  late Products product;
 
 List<Widget> pages = [
     HomePage(),
     MyFavourites(),
-    MyCart(product: demoProducts[0],),
+    MyCart(),
     MyProfile(),
 ];
 

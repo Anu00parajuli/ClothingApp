@@ -53,8 +53,7 @@ ImagePicker picker = ImagePicker();
           backgroundColor: Colors.white
         ),
         body: Container(
-         
-          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           child : Column(
             children: [
               SizedBox(height: 40,),

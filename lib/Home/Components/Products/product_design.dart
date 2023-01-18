@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:clothing_app/Home/Components/Products/new_products.dart';
@@ -20,8 +19,10 @@ class ProductDesign extends StatelessWidget {
   final List colors;
   final int price;
   final String brandName;
+   bool isAddedToCart= false;
+   bool isSelectedToCart = false;
 
-  const ProductDesign({super.key, required this.title, required this.description, required this.imagePath, required this.rating, required this.isFavourite, required this.sizes, required this.colors, required this.price, required this.brandName});
+   ProductDesign({super.key, required this.title, required this.description, required this.imagePath, required this.rating, required this.isFavourite, required this.sizes, required this.colors, required this.price, required this.brandName, required this.isAddedToCart , required this.isSelectedToCart});
   //  var newProduct =  ProductDesign(title: title, description: description, imagePath: imagePath, rating: rating, isFavourite: isFavourite, sizes: sizes, colors: colors, price: price,);
 
   @override
@@ -38,7 +39,7 @@ class ProductDesign extends StatelessWidget {
                 onTap: (){
                  Navigator.of(context).push(
     MaterialPageRoute(
-      builder: (context) =>  ProductDescription(product: ProductDesign(title: title, description: description, imagePath: imagePath, rating: rating, isFavourite: isFavourite, sizes: sizes, colors: colors, price: price, brandName: brandName,) ),
+      builder: (context) =>  ProductDescription(product: ProductDesign(title: title, description: description, imagePath: imagePath, rating: rating, isFavourite: isFavourite, sizes: sizes, colors: colors, price: price, brandName: brandName, isAddedToCart: isAddedToCart, isSelectedToCart: isSelectedToCart,) ),
     ),
   );
                 },
@@ -53,7 +54,8 @@ class ProductDesign extends StatelessWidget {
                          width: 150,),
                          Text(title.toString()),
                          Text(description.toString()),
-                         Text(price.toString())
+                         Text(price.toString()),
+                         
                          
                           //  Hero(
                           //   tag: [demoProducts[1].title,

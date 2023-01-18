@@ -1,5 +1,5 @@
 import 'package:clothing_app/Home/Components/Branches/branches.dart';
-import 'package:clothing_app/Home/Components/Brands/brands.dart';
+import 'package:clothing_app/Home/Components/Brands/Brands/brands.dart';
 import 'package:clothing_app/Home/Components/Collection/new_collection.dart';
 // import 'package:clothing_app/Home/Components/home_header.dart';
 import 'package:clothing_app/Home/Components/Products/new_products.dart';
@@ -22,9 +22,9 @@ class _HomeBodyState extends State<HomeBody> {
         child: Column(
           children: [
              SizedBox(height: 20,),
-             Text('SignIn as'),
-            SizedBox(width: 10,),
-            Text(user.email!),
+            //  Text('SignIn as'),
+            // SizedBox(width: 10,),
+            // Text(user.email!),
            
            SizedBox(height: 30,),
             Text('New Products'),

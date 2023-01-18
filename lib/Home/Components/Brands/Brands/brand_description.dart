@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:clothing_app/Home/Components/Brands/brand_design.dart';
+import 'package:clothing_app/Home/Components/Brands/Brands/brand_design.dart';
 import 'package:flutter/material.dart';
 
-import '../../../Constants/global_variables.dart';
+import '../../../../Constants/global_variables.dart';
 
 class BrandDescription extends StatefulWidget {
   const BrandDescription({super.key, required this.brand});

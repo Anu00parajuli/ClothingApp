@@ -1,4 +1,5 @@
 import 'package:clothing_app/Auth/login.dart';
+import 'package:clothing_app/Constants/global_variables.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 class LogoutScreen extends StatefulWidget {
@@ -13,7 +14,10 @@ class _LogoutScreenState extends State<LogoutScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          foregroundColor: GlobalVariables.primarycolor,
+        ),
       
       body:
       Center(

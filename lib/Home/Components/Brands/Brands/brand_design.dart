@@ -1,5 +1,5 @@
-import 'package:clothing_app/Home/Components/Brands/brand_description.dart';
-import 'package:clothing_app/Home/Components/Brands/our_products.dart';
+import 'package:clothing_app/Home/Components/Brands/Brands/brand_description.dart';
+import 'package:clothing_app/Home/Components/Brands/BrandProducts/our_products.dart';
 import 'package:flutter/material.dart';
 
 class BrandDesign extends StatelessWidget {
@@ -8,9 +8,7 @@ class BrandDesign extends StatelessWidget {
   final String logo;
   const BrandDesign({super.key, required this.title, required this.description, required this.logo});
 
-  OurProducts ourProduct() {
-    return OurProducts();
-  }
+ 
   
 
   @override
@@ -37,7 +35,12 @@ class BrandDesign extends StatelessWidget {
                   ),
                 Text(title.toString()),
                 Text(description.toString()),
-                OutlinedButton(onPressed: ourProduct, child: Text('Our Products'))
+                // OutlinedButton(onPressed:(() {
+                  
+                //  Navigator.push(context, MaterialPageRoute(builder: (context) =>  OurBrandProducts()),
+                //    );
+                //  }),
+                // child: Text('Our Products'))
                   
                 ],
               ),
