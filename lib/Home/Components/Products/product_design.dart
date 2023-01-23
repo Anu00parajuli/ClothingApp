@@ -20,9 +20,9 @@ class ProductDesign extends StatelessWidget {
   final int price;
   final String brandName;
    bool isAddedToCart= false;
-   bool isSelectedToCart = false;
+   bool isSelectedToCheckout = false;
 
-   ProductDesign({super.key, required this.title, required this.description, required this.imagePath, required this.rating, required this.isFavourite, required this.sizes, required this.colors, required this.price, required this.brandName, required this.isAddedToCart , required this.isSelectedToCart});
+   ProductDesign({super.key, required this.title, required this.description, required this.imagePath, required this.rating, required this.isFavourite, required this.sizes, required this.colors, required this.price, required this.brandName, required this.isAddedToCart , required this.isSelectedToCheckout});
   //  var newProduct =  ProductDesign(title: title, description: description, imagePath: imagePath, rating: rating, isFavourite: isFavourite, sizes: sizes, colors: colors, price: price,);
 
   @override
@@ -39,7 +39,7 @@ class ProductDesign extends StatelessWidget {
                 onTap: (){
                  Navigator.of(context).push(
     MaterialPageRoute(
-      builder: (context) =>  ProductDescription(product: ProductDesign(title: title, description: description, imagePath: imagePath, rating: rating, isFavourite: isFavourite, sizes: sizes, colors: colors, price: price, brandName: brandName, isAddedToCart: isAddedToCart, isSelectedToCart: isSelectedToCart,) ),
+      builder: (context) =>  ProductDescription(product: ProductDesign(title: title, description: description, imagePath: imagePath, rating: rating, isFavourite: isFavourite, sizes: sizes, colors: colors, price: price, brandName: brandName, isAddedToCart: isAddedToCart,  isSelectedToCheckout: isSelectedToCheckout,), ),
     ),
   );
                 },
@@ -53,8 +53,11 @@ class ProductDesign extends StatelessWidget {
                          height: 150,
                          width: 150,),
                          Text(title.toString()),
-                         Text(description.toString()),
-                         Text(price.toString()),
+                        //  Text(description.toString()),
+                         Text('Rs. '+price.toString(),
+                         style: TextStyle(
+                          color: Colors.deepOrangeAccent
+                         ),),
                          
                          
                           //  Hero(

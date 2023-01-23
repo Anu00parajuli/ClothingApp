@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 class MySearchDelegate extends SearchDelegate {
  List<String> searchTerms = ['Pant', 'Pure Kurtha' 'Wedding', 'Random' , 'Festive' , 'Levis' , 'Gucci' , 'Saree' , 'Hoodie' , 'Summer Collection' , 'Winter Collection' , 'Autumn Collection'];
   @override
-  List<Widget>? buildActions(BuildContext context) {
+  List<Widget>? buildActions(BuildContext context)
+   {
+    
     return [
       IconButton(
         onPressed: () {

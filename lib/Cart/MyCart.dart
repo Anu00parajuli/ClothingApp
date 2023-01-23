@@ -22,6 +22,8 @@ class _MyCartState extends State<MyCart> {
   Widget build(BuildContext context) {
     final cartListProvider = 
             Provider.of<MyCartProvider>(context, listen: false).getmyCartProductsList;
+    final cartProvider = 
+            Provider.of<MyCartProvider>(context, listen: false);
      final checkoutProvider = 
             Provider.of<MyCheckoutProvider>(context, listen: false);
     return SafeArea(
@@ -59,10 +61,23 @@ class _MyCartState extends State<MyCart> {
                             width: 100,),
                         Text(cartInfo.title),
                         SizedBox(width: 5,),
-                        Text(cartInfo.price.toString()),
+                        Text('Rs.'+cartInfo.price.toString(),
+                        style: TextStyle(
+                          color: Colors.deepOrangeAccent
+                         ),),
                         SizedBox(width: 5,),
-                        cartInfo.isSelectedToCart ?
-                        Text('Selected'):
+                        Column(
+                          children: [
+                        cartInfo.isSelectedToCheckout ?
+                        OutlinedButton.icon(
+                          icon: Icon(Icons.mark_chat_read_rounded),
+                          label: Text('Selected'),
+                          onPressed: () {
+
+                            },
+                          
+                          )
+                        :
                         OutlinedButton.icon(
                           icon: Icon(Icons.shopping_cart),
                          label: Text('Select'),
@@ -71,15 +86,22 @@ class _MyCartState extends State<MyCart> {
                          ),
                           onPressed: () { 
                             //subtotaling functionality
-                            checkoutProvider.addProductToCheckout(cartInfo);
+                            checkoutProvider.addProductToCheckout(cartInfo); 
                            },
                
                          
-                          )
-                       
-               
-               
-                        
+                          ),
+                          OutlinedButton.icon(
+                            onPressed: (){
+                              print('Cart ra checkout bata remove huncha bata remove huncha');
+                              cartProvider.removeProduct(cartInfo);
+                              checkoutProvider.removeProduct(cartInfo);
+                            }, 
+                            icon: Icon(Icons.remove_circle_outline), 
+                            label: Text('Remove')
+                            )
+                          ]
+                        ) 
                       ],
                     ),
                   );

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:khalti_flutter/khalti_flutter.dart';
 
+import '../Constants/global_variables.dart';
+
 class ProceedPayment extends StatefulWidget {
 
    ProceedPayment({super.key });
@@ -51,13 +53,21 @@ class _ProceedPaymentState extends State<ProceedPayment> {
       ],
     home: SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+           backgroundColor: Colors.white,
+        leading: InkWell(
+          onTap: () => Navigator.pop(context),
+          
+          child: Icon(Icons.arrow_back,
+          color: GlobalVariables.primarycolor,)),
+        ),
        body: Center(
        
        child: Card(
         shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.0),
               ),
-              color: Colors.white70,
+              color: Colors.white,
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Form(
@@ -66,8 +76,14 @@ class _ProceedPaymentState extends State<ProceedPayment> {
                   child: Column(
         children: [
           SizedBox(height: 30,),
-          Text('Proceed to Pay'),
-          SizedBox(height: 20,),
+          RichText(text: TextSpan(
+                text: 'Proceed To Pay',
+                style: TextStyle(
+                  color: Colors.deepOrangeAccent,
+                  letterSpacing: 1,
+                  fontSize: 30)
+              )),
+          SizedBox(height: 30,),
           TextFormField(
             // controller: numberController,
                       
@@ -92,6 +108,7 @@ class _ProceedPaymentState extends State<ProceedPayment> {
                         }
                       },
                     ),
+                    SizedBox(height: 20,),
           ElevatedButton(onPressed: () {
             
             if (_formKey.currentState!.validate()) {

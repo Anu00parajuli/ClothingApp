@@ -34,7 +34,7 @@ class BrandDesign extends StatelessWidget {
                   width: 150,
                   ),
                 Text(title.toString()),
-                Text(description.toString()),
+                // Text(description.toString()),
                 // OutlinedButton(onPressed:(() {
                   
                 //  Navigator.push(context, MaterialPageRoute(builder: (context) =>  OurBrandProducts()),

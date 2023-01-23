@@ -27,15 +27,24 @@ class _HomeBodyState extends State<HomeBody> {
             // Text(user.email!),
            
            SizedBox(height: 30,),
-            Text('New Products'),
+            Text('New Products', style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black
+            ),),
             // SizedBox(width: 20,),
             NewProducts(),
             // SizedBox(height: 20,),
-            Text('Our Brands'),
+            Text('Our Brands',style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black
+            ),),
             SizedBox(width: 20,),
             Brands(),
             SizedBox(height: 20,),
-            Text('Our Collection'),
+            Text('Our Collection',style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black
+            ),),
             SizedBox(width: 20,),
             Collection(),
             SizedBox(height: 20,),
@@ -43,7 +52,10 @@ class _HomeBodyState extends State<HomeBody> {
             // SizedBox(width: 20,),
             // PopularProducts(),
             // SizedBox(height: 30,),
-            Text('Our Branches'),
+            Text('Our Branches',style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black
+            ),),
             SizedBox(width: 20,),
             Branches(),
             

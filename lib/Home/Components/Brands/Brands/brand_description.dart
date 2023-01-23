@@ -32,7 +32,10 @@ class _BrandDescriptionState extends State<BrandDescription> {
             child: Card(
               child: Column(
                 children: [
-                  Text(widget.brand.title),
+                  Text(widget.brand.title, style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black
+            ),),
                   Text(widget.brand.description),
                   
                    Hero(

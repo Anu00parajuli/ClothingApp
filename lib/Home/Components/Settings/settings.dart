@@ -30,99 +30,101 @@ class UserSettings extends StatelessWidget {
         body: Container(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Container(child: Text('About phone', style: TextStyle(
-                    fontSize: 16
-                  ),)),
-                  
-                ),
-                Divider(),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Container(child: Text('About Anushka', style: TextStyle(
-                    fontSize: 16
-                  ),)),
-                  
-                ),
-                Divider(),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Container(child: Text('System apps updater', style: TextStyle(
-                    fontSize: 16
-                  ),)),
-                  
-                ),
-                Divider(),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Container(child: Text('Security status', style: TextStyle(
-                    fontSize: 16
-                  ),)),
-                  
-                ),
-                Divider(),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Container(child: Text('SIM cards & mobile networks', style: TextStyle(
-                    fontSize: 16
-                  ),)),
-                  
-                ),
-                Divider(),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Container(child: Text('Wi-Fi', style: TextStyle(
-                    fontSize: 16
-                  ),)),
-                  
-                ),
-                Divider(),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Container(child: Text('Bluetooth', style: TextStyle(
-                    fontSize: 16
-                  ),)),
-                  
-                ),
-                Divider(),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Container(child: Text('Portable hotspot', style: TextStyle(
-                    fontSize: 16
-                  ),)),
-                  
-                ),
-                Divider(),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Container(child: Text('Connection & sharing', style: TextStyle(
-                    fontSize: 16
-                  ),)),
-                  
-                ),
-                Divider(),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Container(child: Text('Lock screen', style: TextStyle(
-                    fontSize: 16
-                  ),)),
-                  
-                ),
-                Divider(),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Container(child: Text('Display', style: TextStyle(
-                    fontSize: 16
-                  ),)),
-                  
-                ),
-                Divider(),
-               
-
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Container(child: Text('About phone', style: TextStyle(
+                      fontSize: 16
+                    ),)),
+                    
+                  ),
+                  Divider(),
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Container(child: Text('About Anushka', style: TextStyle(
+                      fontSize: 16
+                    ),)),
+                    
+                  ),
+                  Divider(),
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Container(child: Text('System apps updater', style: TextStyle(
+                      fontSize: 16
+                    ),)),
+                    
+                  ),
+                  Divider(),
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Container(child: Text('Security status', style: TextStyle(
+                      fontSize: 16
+                    ),)),
+                    
+                  ),
+                  Divider(),
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Container(child: Text('SIM cards & mobile networks', style: TextStyle(
+                      fontSize: 16
+                    ),)),
+                    
+                  ),
+                  Divider(),
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Container(child: Text('Wi-Fi', style: TextStyle(
+                      fontSize: 16
+                    ),)),
+                    
+                  ),
+                  Divider(),
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Container(child: Text('Bluetooth', style: TextStyle(
+                      fontSize: 16
+                    ),)),
+                    
+                  ),
+                  Divider(),
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Container(child: Text('Portable hotspot', style: TextStyle(
+                      fontSize: 16
+                    ),)),
+                    
+                  ),
+                  Divider(),
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Container(child: Text('Connection & sharing', style: TextStyle(
+                      fontSize: 16
+                    ),)),
+                    
+                  ),
+                  Divider(),
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Container(child: Text('Lock screen', style: TextStyle(
+                      fontSize: 16
+                    ),)),
+                    
+                  ),
+                  Divider(),
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Container(child: Text('Display', style: TextStyle(
+                      fontSize: 16
+                    ),)),
+                    
+                  ),
+                  Divider(),
+                 
+            
+                ],
+              ),
             ),
           ),
         ),

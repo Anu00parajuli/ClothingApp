@@ -20,10 +20,12 @@ class MyFavourites extends StatefulWidget {
 class _MyFavouritesState extends State<MyFavourites> {
   @override
   Widget build(BuildContext context) {
-    String buttonText = 'Add to cart';
     
-            final cartProvider = 
+    
+  final cartProvider = 
             Provider.of<MyCartProvider>(context, listen: false);
+  
+  final favouriteProvider = Provider.of<MyFavProductsProvider>(context,listen: false);
 
 
             
@@ -53,8 +55,8 @@ class _MyFavouritesState extends State<MyFavourites> {
             //   ),
             //  )
               
-              Consumer<MyFavProductsProvider>(
-  builder: (_, provider, consumerzz) =>
+            Consumer<MyFavProductsProvider>(
+              builder: (_, provider, ch) =>
   
 
      Expanded(
@@ -70,12 +72,25 @@ class _MyFavouritesState extends State<MyFavourites> {
                       Image.network(favInfo.imagePath,
                       height: 100,
                           width: 100,),
-                      Text(favInfo.title),
+                      
+                      Text(favInfo.title,),
                       SizedBox(width: 5,),
-                      Text(favInfo.price.toString()),
+                      Text('Rs.'+favInfo.price.toString(),
+                      style: TextStyle(
+                          color: Colors.deepOrangeAccent
+                         ),),
                       SizedBox(width: 5,),
+                      Column(
+                        children: [
                       favInfo.isAddedToCart ?
-                      Text('added')
+                      OutlinedButton.icon(
+                        onPressed: (){}, 
+                        icon: Icon(Icons.mark_chat_read), 
+                        label: Text('Added'),
+                        style: OutlinedButton.styleFrom(
+                          foregroundColor: Colors.orange
+                        )
+                        )
                       :
                       OutlinedButton.icon(
                      
@@ -87,14 +102,21 @@ class _MyFavouritesState extends State<MyFavourites> {
        
                         },
                           icon: Icon(Icons.shopping_cart),
-                       label: Text(buttonText),
+                       label: Text('AddToCart'),
                        style: OutlinedButton.styleFrom(
                         foregroundColor: Colors.pinkAccent
                        ),
-       
-                       
                         ),
-                     
+                      OutlinedButton.icon(onPressed: (){
+                        //remove from the favourites list
+                        print('remove huncha');
+                        favouriteProvider.removeProduct(favInfo);
+                      }, 
+                      icon: Icon(Icons.remove_circle_outline_outlined), 
+                      label: Text('Remove')
+                      )
+                        ]
+                      )
        
        
                       
@@ -104,15 +126,8 @@ class _MyFavouritesState extends State<MyFavourites> {
                 }
                 ),
      ),
-
-  
-                     
-              
-            
-              
-              
-              
-              ),
+    ),
+    
             //  Card(
             //     child: Row(
             //       children: [

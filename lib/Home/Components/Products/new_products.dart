@@ -149,7 +149,7 @@ class _NewProductsState extends State<NewProducts> {
       
        
 
-      var newProduct =  ProductDesign(title: title, description: description, imagePath: imagePath, rating: rating, isFavourite: isFavourite, sizes: sizes, colors: colors, price: price, brandName: 'brandName', isAddedToCart: isAddedToCart, isSelectedToCart: isSelectedToCart,);
+      var newProduct =  ProductDesign(title: title, description: description, imagePath: imagePath, rating: rating, isFavourite: isFavourite, sizes: sizes, colors: colors, price: price, brandName: 'brandName', isAddedToCart: isAddedToCart,  isSelectedToCheckout: isSelectedToCart,);
       productsList.add(newProduct);
       
       }
@@ -157,7 +157,7 @@ class _NewProductsState extends State<NewProducts> {
     return Container(
       height: 250,
       child: ListView(
-        scrollDirection: Axis.horizontal,
+       scrollDirection: Axis.horizontal,
        children: productsList,
         
       ),

@@ -41,9 +41,17 @@ class _ProductDescriptionState extends State<ProductDescription> {
             child: Card(
               child: Column(
                 children: [
-                  Text(widget.product.title),
+                  Text(widget.product.title,
+                  style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black
+            ),),
                   Text(widget.product.description),
-                  Text(widget.product.price.toString()),
+                  Text('Rs. '+widget.product.price.toString(), style: TextStyle(
+              
+              color: Colors.deepOrangeAccent
+            ),
+                  ),
                    Hero(
                       tag: widget.product.title,
                      child: CachedNetworkImage(
@@ -59,7 +67,11 @@ class _ProductDescriptionState extends State<ProductDescription> {
                                    ),
                    ),
                    SizedBox(height: 10,),
-                   Text('Add to your WishList'),
+                   Text('Add to your WishList' ,
+                   style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black
+            ),),
                   FavoriteButton(
                 isFavorite: false,
                 // iconDisabledColor: Colors.white,

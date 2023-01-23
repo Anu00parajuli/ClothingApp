@@ -12,7 +12,7 @@ class MyCheckoutProvider extends ChangeNotifier{
   //   _myCartProductList.add(product_obj);
   // }
  void addProductToCheckout( ProductDesign product){
-  product.isAddedToCart = true;
+  product.isSelectedToCheckout = true;
      _myCheckoutProductsList.add(product);
  }
   void removeProduct(ProductDesign product_obj) {
@@ -20,4 +20,15 @@ class MyCheckoutProvider extends ChangeNotifier{
 
     notifyListeners();
   }
+
+
+  double totalPrice(){
+    double totalPrice = 0;
+    for (var product in _myCheckoutProductsList) {
+      totalPrice = totalPrice + product.price;
+    }
+    return totalPrice;
+  }
+
+
 }
