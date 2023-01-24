@@ -14,6 +14,7 @@ import 'package:clothing_app/Home/Components/Settings/settings.dart';
 import 'package:clothing_app/Logout/logout.dart';
 
 import 'package:clothing_app/Profile/myprofile.dart';
+import 'package:clothing_app/Search/search_delegate.dart';
 import 'package:clothing_app/Splash%20Screen/splash_screen.dart';
 import 'package:clothing_app/provider/cartProvider.dart';
 import 'package:clothing_app/provider/checkoutProvider.dart';
@@ -70,7 +71,8 @@ class ClothingApp extends StatelessWidget {
       'faqs':(context) => FAQs(),
       'cart' :(context) => MyCart(),
       'splash_screen' :(context) => SplashScreen(key: key),
-      'check_out':(context) => Checkout()
+      'check_out':(context) => Checkout(),
+      
       
 
       // 'product_description':(context) => ProductDescription(product: demoProducts[0],),

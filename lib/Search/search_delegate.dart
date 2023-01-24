@@ -1,7 +1,12 @@
+import 'package:clothing_app/Home/Components/Products/product_design.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../Home/Components/Products/product_descript.dart';
+import '../provider/favouriteProducts.dart';
 
 class MySearchDelegate extends SearchDelegate {
- List<String> searchTerms = ['Pant', 'Pure Kurtha' 'Wedding', 'Random' , 'Festive' , 'Levis' , 'Gucci' , 'Saree' , 'Hoodie' , 'Summer Collection' , 'Winter Collection' , 'Autumn Collection'];
+ List<ProductDesign> searchTerms = [];
   @override
   List<Widget>? buildActions(BuildContext context)
    {
@@ -30,9 +35,11 @@ class MySearchDelegate extends SearchDelegate {
   @override
   Widget buildResults(BuildContext context) {
     List<String> matchQuery = [];
+          searchTerms= Provider.of<MyFavProductsProvider>(context,listen: false).fetchAllProductsFromFirebase;
+
     for (var cloth in searchTerms) {
-      if (cloth.toLowerCase().contains(query.toLowerCase())) {
-        matchQuery.add(cloth);
+      if (cloth.title.toLowerCase().contains(query.toLowerCase())) {
+        matchQuery.add(cloth.title);
       }
     }
     return ListView.builder(
@@ -48,9 +55,11 @@ class MySearchDelegate extends SearchDelegate {
 
    @override
   Widget buildSuggestions(BuildContext context) {
-    List<String> matchQuery = [];
+      searchTerms= Provider.of<MyFavProductsProvider>(context,listen: false).fetchAllProductsFromFirebase;
+
+    List<ProductDesign> matchQuery = [];
     for (var cloth in searchTerms) {
-      if (cloth.toLowerCase().contains(query.toLowerCase())) {
+      if (cloth.title.toLowerCase().contains(query.toLowerCase())) {
         matchQuery.add(cloth);
       }
     }
@@ -58,8 +67,17 @@ class MySearchDelegate extends SearchDelegate {
       itemCount: matchQuery.length,
       itemBuilder: (context, index) {
         var result = matchQuery[index];
-        return ListTile(
-          title: Text(result),
+        return GestureDetector(
+          child: ListTile(
+            title: Text(result.title),
+          ),
+          onTap: (){
+           Navigator.of(context).push(
+    MaterialPageRoute(
+      builder: (context) => ProductDescription(product: result),
+    ),
+  );
+          },
         );
       },
     );

@@ -5,6 +5,9 @@ import 'package:clothing_app/Home/Components/Products/product_design.dart';
 import 'package:clothing_app/Models/list_productsModel.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:provider/provider.dart';
+
+import '../../../provider/favouriteProducts.dart';
 class NewProducts extends StatefulWidget {
   
   const NewProducts({super.key});
@@ -15,6 +18,7 @@ class NewProducts extends StatefulWidget {
 
 class _NewProductsState extends State<NewProducts> {
   
+
 
   List<Products> demoProducts = [
   Products(
@@ -150,9 +154,11 @@ class _NewProductsState extends State<NewProducts> {
        
 
       var newProduct =  ProductDesign(title: title, description: description, imagePath: imagePath, rating: rating, isFavourite: isFavourite, sizes: sizes, colors: colors, price: price, brandName: 'brandName', isAddedToCart: isAddedToCart,  isSelectedToCheckout: isSelectedToCart,);
+
       productsList.add(newProduct);
       
       }
+         Provider.of<MyFavProductsProvider>(context,listen: false).saveAllProductsFromFirebase(productsList);
     }
     return Container(
       height: 250,

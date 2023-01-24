@@ -38,4 +38,12 @@ class MyFavProductsProvider extends ChangeNotifier{
     notifyListeners();
   }
 
+  List productsOfFirebase = [];
+  get fetchAllProductsFromFirebase => productsOfFirebase;
+  void saveAllProductsFromFirebase(List <ProductDesign> productInfo){
+    
+    productsOfFirebase=productInfo;
+    notifyListeners();
+  }
+
 }

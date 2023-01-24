@@ -182,7 +182,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     Container(
                       child: Column(
                         children:[
-                          Text('Already an user?'),
+                          
                           SizedBox(width: 0.2),
                           OutlinedButton(onPressed: () async {
                             await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -235,7 +235,15 @@ class _SignUpPageState extends State<SignUpPage> {
                         Navigator.pushNamed(context, 'login');
                       }
                     },
-                    child: Text('SignUp'))
+                    child: Text('SignUp')),
+                    SizedBox(height: 10,),
+                    Text('Already an user?'),
+                    SizedBox(width: 5,),
+                    OutlinedButton(
+                    onPressed: (){
+                      Navigator.pushNamed(context, 'login');
+                    }, 
+                    child: Text('Login'))
                     ],
 
 

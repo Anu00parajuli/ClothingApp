@@ -109,14 +109,14 @@ class _ProceedPaymentState extends State<ProceedPayment> {
                       },
                     ),
                     SizedBox(height: 20,),
-          ElevatedButton(onPressed: () {
+          // ElevatedButton(onPressed: () {
             
-            if (_formKey.currentState!.validate()) {
-                        // Navigator.pushNamed(context, 'login');
+          //   if (_formKey.currentState!.validate()) {
+          //               // Navigator.pushNamed(context, 'login');
                         
-              }
+          //     }
 
-          }, child: Text('Pay')),
+          // }, child: Text('Pay')),
           KhaltiButton(
             // if (_formKey.currentState!.validate()) {
                config: PaymentConfig(

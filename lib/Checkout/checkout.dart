@@ -143,25 +143,20 @@ class _CheckoutState extends State<Checkout> {
               builder: (_, provider, consumerzz) =>
   
                
-               Card(
-                  
-                child: Container(
-                  height: 50,
-                  width: 200,
-                  color: GlobalVariables.primarycolor,
-                  child: Text('TOTAL COST:    ' + provider.totalPrice().toString(),
-                  style: TextStyle(
-                letterSpacing: 1,
-                fontSize: 12,
-                color: Colors.white,
-                fontWeight: FontWeight.bold
-                           ),
+               Container(
+                 height: 100,
+                 width: 200,
+                 // color: Colors.deepOrangeAccent,
+                 child: Text('TOTAL COST:    ' + provider.totalPrice().toString(),
+                 style: TextStyle(
+               letterSpacing: 1,
+               fontSize: 12,
+               color: Colors.deepOrangeAccent,
+               fontWeight: FontWeight.bold
+                          ),
               
-                  )
-                  ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24.0)),
-                )),
+                 )
+                 )),
                   OutlinedButton.icon(
                     onPressed: (){
                       Navigator.pushNamed(context, 'proceed_to_pay');

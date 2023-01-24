@@ -1,3 +1,4 @@
+import 'package:clothing_app/Auth/signup.dart';
 import 'package:clothing_app/Bottom%20Navigation/bottom_navigation.dart';
 import 'package:clothing_app/Home/homescreen.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: Duration(seconds: (3)),
+      duration: Duration(seconds: (1)),
       vsync: this,
     );
   }
@@ -36,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen>
             ..duration = composition.duration
             ..forward().whenComplete(() => Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => BottomNavBar()),
+                  MaterialPageRoute(builder: (context) => SignUpPage()),
                 ));
         },
       ),
